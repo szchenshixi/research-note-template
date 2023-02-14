@@ -1,0 +1,316 @@
+% !TeX spellcheck = en_US
+\documentclass[11pt]{article}
+\usepackage[a4paper,bindingoffset=0.2in,%
+			left=1in,right=1in,top=1in,bottom=1in,%
+			footskip=.25in]{geometry}
+\bibliographystyle{ieeetr}
+
+% --------------------------------------------------------------------
+%                        User Defined Packages
+% --------------------------------------------------------------------
+% For truncating long sentences
+% Turn "This text has been truncated"
+%   to "This text has been trun-..."
+\usepackage[hyphenate]{truncate}
+% For including figures
+\usepackage{graphicx}
+% For arranging subfigures flexibly
+\usepackage{subcaption,array}
+% For setting the font and size of the figure captions
+\usepackage{caption}
+\captionsetup{width=0.8\textwidth}
+\captionsetup[table]{labelsep=newline,name=TABLE,textfont=sc}
+\captionsetup[figure]{labelsep=period,name=Fig.,font=scriptsize}
+%     - Tables use Roman numbering
+\renewcommand\thetable{\Roman{table}}
+% For adding footnote to a table
+\usepackage[flushleft]{threeparttable}
+% For the diagonal slash in a table
+\usepackage{diagbox}
+% For \multirow
+\usepackage{multirow}
+% \toprule, \midrule, and \bottomrule
+\usepackage{booktabs}
+% New column types that accept width. e.g. | L{2cm} | C{1cm} |
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% For the \scaleto text scaling
+\usepackage{scalerel}
+% Formating the appendix sections
+\usepackage[title]{appendix}
+% Link icon \faExternalLink
+\usepackage{fontawesome}
+% Fit table to the page width automatically
+\usepackage{adjustbox}
+% Provides easy color coding. e.g. {blue!80!black} means blue*0.8 + black*0.2
+%\usepackage[table]{xcolor}  % Loads also »colortbl«
+\usepackage{xcolor}
+
+% ------------------------------
+%    Packages Kept at Bottom
+% ------------------------------
+% [Bottom] Some suggest to load hyperref last
+% 	colorlinks: Colours links instead of ugly boxes
+% 	linkcolor: Colour of internal links. [red/blue/green]
+% 	urlcolor: Colour for external links
+% 	citecolor: Colour of citations
+\usepackage[colorlinks,
+pagebackref,
+linkcolor={blue!80!black},
+anchorcolor={blue!80!black},
+citecolor={blue!80!black},
+urlcolor={blue!80!black}
+]{hyperref}
+% Customize the backref command of hyperref. Backref link from the references.
+\renewcommand\backrefxxx[3]{%
+	\hyperlink{page.#1}{$\uparrow$#1}%
+}
+\newcommand\myBlogUrl{http://schenax.student.ust.hk}
+% A macro to show the date of last update
+\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
+% [Bottom] For spliting a large Latex project into sub-projects (e.g. chapters)
+\usepackage{subfiles}
+
+% -----------------------------
+%     Experimental Packages
+% -----------------------------
+% \usepackage{tabularx}
+% Used just in this template to generate dummy content
+\usepackage{blindtext}
+
+
+\title{Research Note Template}
+\author{Shixi Chen}
+\date{December 18, 2020}
+
+\begin{document}
+
+% Start roman numbering
+\pagenumbering{roman}
+\maketitle
+
+%\begin{abstract}
+%The \texttt{outlines} package defines the \texttt{outline} environment,
+%that allows outline-style indented lists with freely mixed levels up
+%to four levels deep.  It replaces the nested "begin"/"end" pairs by
+%different item tags "\1" to "\4" for each nesting level.  This is very
+%convenient in cases where nested lists are used a lot, such as for to-do
+%lists or presentation slides.
+%\end{abstract}
+
+% e.g. 2 -- TOC displays part,chapters,sections,subsections
+%  -1 = \part
+% 	0 = \chapter
+% 	1 = \section
+% 	2 = \subsection
+% 	3 = \subsubsection
+% 	4 = \paragraph
+% 	5 = \subparagraph
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+\tableofcontents
+% Render the last compile time. With arg: \updateinfo[December 18, 2020]
+\updateinfo
+
+\newpage
+% Switch to normal numbering
+\pagenumbering{arabic}
+\section{Your Section One}
+
+\blindtext
+
+\subsection{Your Subsection}
+
+\blindtext
+
+\begin{figure}[!hbt]
+	\centering
+	\begin{subfigure}[b]{0.38\textwidth}
+		\includegraphics[width=\textwidth]{example-image-a}
+		\caption{}
+		\label{fig:exampleImageA}		% The \label should always be after \caption
+		\includegraphics[width=\textwidth]{example-image-b}
+		\caption{}
+		\label{fig:exampleImageB}		% The \label should always be after \caption
+	\end{subfigure}
+	\begin{subfigure}[b]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,angle=90]{example-image-c}
+		\caption{}
+		\label{fig:exampleImageC}		% The \label should always be after \caption
+	\end{subfigure}
+	\caption{Explanation of the figure presentation. (a) Evidence A. (b) Evidence B. (c) Evidence C.}
+	\label{fig:exampleImages}		% The \label should always be after \caption
+\end{figure}
+
+\blindtext
+
+\blindtext
+
+\subsubsection{Your Subsubsection}
+
+\begin{table}[!htb]
+	\centering
+	%	\renewcommand{\arraystretch}{1.5}
+	\caption{Electrical Power Model}
+	\label{tab:electricalPwrModel}		% The \label should always be after \caption
+	\begin{adjustbox}{max width=\textwidth}  % Make the table fit text width
+		\begin{threeparttable}
+			\begin{tabular}{l r r r}
+				\toprule
+				\textbf{Parameter} 					  & \textbf{Dynamic Power}    & \textbf{Static Power} 			& \textbf{Note}					 \\ \midrule
+				core@4GHz + L1 I/D Cache 			  & 1.50185 W  			      & 0.131346 W 		   				& \multirow[c]{7}{*}{McPAT 7nm}  \\
+				% [vpos]{nrows}{width}
+				\multirow[t]{2}{*}{512KB L2 Slice}    & Read: 0.0226595 nJ/op     & \multirow[t]{2}{*}{0.0238705 W} &            					 \\
+				                                      & Write: 0.0226595 nJ/op    &                                 &                                \\
+				\multirow[t]{2}{*}{4MB L3 Slice}      & Read: 0.080728 nJ/op      & \multirow[t]{2}{*}{0.189787 W}  &                                \\
+				                                      & Write: 0.080728 nJ/op     &            						&								 \\
+				router                                & 0.09 pJ/bit               & 0.11 W                          &                                \\
+				buffer                                & 0.064 pJ/bit              & 0.0002 W                        &                                \\ \midrule
+				intra-die elink (16-Byte wide, uni-)  & 0.0768 pJ/bit             & 0.017 W                         &                                \\
+				inter-die elink                       & 1.02 pJ/bit               & \textcolor{red}{0 W, no report} & \cite{Something}               \\
+				inter-chip elink \tnote{a}            & 4.71 pJ/bit               & \textcolor{red}{0 W, no report} & OEIL                           \\ \midrule
+				memory controller                     & 0.0391783 W               & 0.00194085 W                    & McPAT                          \\ \midrule
+				memory                                & 0.24 W                    & 0.075 W                         & MICRON DDR4 8GB                \\
+				                                      &                           &                                 & @(9\% read, 3\%write)          \\ \bottomrule
+			\end{tabular}
+			\begin{tablenotes}
+				\newcommand{\CORNERSTONE}{\href{run:./appendix/CORNERSTONE-Standard-Components-Library-SOI.pdf}{CORNERSTONE}}
+				\scriptsize
+				\item [a] Highly dependent on length, working frequency, etc. Value derived from OEIL's default device parameters, check the manual for details.
+			\end{tablenotes}
+		\end{threeparttable}
+	\end{adjustbox}
+\end{table}
+
+\blindtext
+
+\subsection{Literature}
+% From this point on, hide sub-sub-sections in the ToC
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\begin{table}[!htb]
+\centering
+\label{tab:literature}		% The \label should always be after \caption
+% \resizebox{\textwidth}{!}{  % Make the table fit text width
+\begin{adjustbox}{max width=\textwidth}  % Make the table fit text width
+\begin{threeparttable}
+\newcommand{\titlelength}{230pt}  % Defines the display length of a title
+\begin{tabular}{ l l l l l }
+	\toprule
+	\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                                  \\ \midrule
+	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Boney96}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
+	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{MG}        & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
+	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{HK}        & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\
+	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Pan}       & Note4         & 2011          & Pan            & \ref{lit:labelOfYourSubsubsection4} \\
+	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Something} & Note5         & 2012          & Shixi          & \ref{lit:labelOfYourSubsubsection5} \\ \bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{adjustbox}
+\end{table}
+
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+% \texorpdfstring is used to generate proper PDF indices
+\label{lit:labelOfYourSubsubsection1}		% The \label should always be after \caption
+{
+	\tiny
+	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Boney96}
+	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
+}
+
+\blindtext
+
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+% \texorpdfstring is used to generate proper PDF indices
+\label{lit:labelOfYourSubsubsection2}		% The \label should always be after \caption
+{
+	\tiny
+	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{MG}
+	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
+}
+
+\blindtext
+
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+% \texorpdfstring is used to generate proper PDF indices
+\label{lit:labelOfYourSubsubsection3}		% The \label should always be after \caption
+{
+	\tiny
+	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{HK}
+	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
+}
+
+\blindtext
+
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+% \texorpdfstring is used to generate proper PDF indices
+\label{lit:labelOfYourSubsubsection4}		% The \label should always be after \caption
+{
+	\tiny
+	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Pan}
+	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
+}
+
+\blindtext
+
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+% \texorpdfstring is used to generate proper PDF indices
+\label{lit:labelOfYourSubsubsection5}		% The \label should always be after \caption
+{
+	\tiny
+	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Something}
+	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
+}
+
+\blindtext
+
+% Resume to show up to \subsubsection in the ToC
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+% -----------------------------------------------------------------------------
+%              End of section "Optical Inter/Intra-Chip Networks"
+% -----------------------------------------------------------------------------
+
+\newpage
+\begin{appendices}
+	\section{An Appendix}
+
+	% Include another tex file
+	% A header is needed on top of the subfile if you want to compile it separately
+	\subfile{latex/classification.tex}
+
+	% The hyperref anchor for key is named cite.key. It is an anchor, not a label, so you have to use \hyperlink instead of \hyperref, but that doesn't use the correct link border color etc. 
+	%\hyperlink{cite.chen_sharing_2014}{Sharing and placement}
+
+	\section{Another Appendix}
+	
+	\subsection{A Subection in Appendix}
+	
+	\section{\href{\myBlogUrl}{\noindent My Blog \texorpdfstring{\small \faExternalLink}{}}}
+	
+\end{appendices}
+
+% Uncomment this to use your own .Bib file
+%\bibliography{bibliography/yourBibFile}
+
+% A dummy bibliography list. 100 is a random guess of the total number of references
+\begin{thebibliography}{100}
+	
+	\bibitem{Boney96} Boney, L., Tewfik, A.H., and Hamdy, K.N., ``Digital
+	Watermarks for Audio Signals," \emph{Proceedings of the Third IEEE
+		International Conference on Multimedia}, pp. 473-480, June 1996.
+	
+	\bibitem{MG} Goossens, M., Mittelbach, F., Samarin, \emph{A LaTeX
+		Companion}, Addison-Wesley, Reading, MA, 1994.
+	
+	\bibitem{HK} Kopka, H., Daly P.W., \emph{A Guide to LaTeX},
+	Addison-Wesley, Reading, MA, 1999.
+	
+	\bibitem{Pan} Pan, D., ``A Tutorial on MPEG/Audio Compression," \emph{IEEE
+		Multimedia}, Vol.2, pp.60-74, Summer 1998.
+	
+	\bibitem{Something} Shixi, ``A Better Way to Include Bibliography is to Use Zotera," \emph{IEEE
+		}, Vol.2, pp.60-74, Summer 2021.
+	
+\end{thebibliography}
+
+\end{document}   

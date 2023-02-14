@@ -1,0 +1,46 @@
+% !TeX root = classification.tex
+% !TeX spellcheck = en_US
+\documentclass[../template.tex]{subfiles}
+
+\begin{document}
+	
+\begin{table}[!htb]
+	\centering
+	\caption{Classification}
+	\label{tab:classificationOpd}	% The \label should always be after \caption
+	\begin{adjustbox}{max width=\textwidth}  % Make the table fit text width
+		\begin{threeparttable}
+			% Local variables
+			\newcommand{\myDiagbox}{\multirow{4}{*}{\diagbox[height=4\line,width=4.5cm]{\textbf{Entry1}\\ \textbf{Entry2}}{\textbf{Entry3} \\ \textbf{Entry4}}}}
+			\newcommand{\myGsC}{}
+			\newcommand{\myGsSd}{\hyperref[subsubsection:labelOfYourSubsubsection1]{\small Subsubsection1} \hyperref[subsubsection:labelOfYourSubsubsection5]{\small Subsubsection5}}
+			\newcommand{\myGsFd}{}
+			\newcommand{\myRsC}{\hyperref[subsubsection:labelOfYourSubsubsection2]{\small Subsubsection2}}
+			\newcommand{\myRsSd}{}
+			\newcommand{\myRsFd}{}
+			\newcommand{\myDC}{\hyperref[subsubsection:labelOfYourSubsubsection3]{\small Subsubsection3}}
+			\newcommand{\myDSd}{}
+			\newcommand{\myDFd}{\hyperref[subsubsection:labelOfYourSubsubsection4]{\small Subsubsection4}}
+			% https://tex.stackexchange.com/questions/494948/diagbox-and-multirow-adjust-the-diagonal	
+			% https://tex.stackexchange.com/questions/114174/slashbox-with-tables-adjusting-the-diagonal-separator-for-multiple-rows
+			\begin{tabular}{ | l | C{2cm} | C{2cm} | C{2cm} | C{2cm} | }
+				\hline
+				\myDiagbox  & \multirow[b]{2}{*}{\textbf{Single}} & \multicolumn{3}{c|}{\multirow{2}{*}{\textbf{Multiple}}} \\
+				            &                                     &                    \multicolumn{3}{c|}{}                    \\ \cline{3-5}
+				            & \multirow[t]{2}{*}{\textbf{LPS}}    &                      &             &                        \\
+				            &                                     & \textbf{C} \tnote{a} & \textbf{SD} & \textbf{FD}            \\ \hline\hline
+				GS          &                                     & \myGsC               & \myGsSd     & \myGsFd                \\ \hline
+				RS          &                                     & \myRsC               & \myRsSd     & \myRsFd                \\ \hline
+				D \tnote{b} &                                     & \myDC                & \myDSd      & \myDFd                 \\ \hline
+				% hybrid    &                                     &                      &             &
+			\end{tabular}
+			\begin{tablenotes}
+				\scriptsize
+				\item [a] Your comments on a
+				\item [b] Your comments on b
+			\end{tablenotes}
+		\end{threeparttable}
+	\end{adjustbox}
+\end{table}
+
+\end{document}
