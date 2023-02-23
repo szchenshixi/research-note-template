@@ -46,6 +46,10 @@
 % Provides easy color coding. e.g. {blue!80!black} means blue*0.8 + black*0.2
 %\usepackage[table]{xcolor}  % Loads also »colortbl«
 \usepackage{xcolor}
+% For rendering algorithm pseudo code
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 
 % ------------------------------
 %    Packages Kept at Bottom
@@ -230,6 +234,8 @@ urlcolor={blue!80!black}
 }
 
 \blindtext
+
+\subfile{latex/pseudocode.tex}
 
 \subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
 % \texorpdfstring is used to generate proper PDF indices

@@ -268,3 +268,6 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.gitignore.io/api/latex
+*.pdf
+!demo.pdf
+!pdf/*.pdf
