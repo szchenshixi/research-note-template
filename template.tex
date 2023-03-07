@@ -73,6 +73,13 @@ urlcolor={blue!80!black}
 \newcommand\myBlogUrl{http://schenax.student.ust.hk}
 % A macro to show the date of last update
 \newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
+% Paper labels [Ref] http://latexcolor.com/
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+\newcommand{\bad}{\textcolor{bittersweet}{\faFrownO }}  % Not worth reading again
+\newcommand{\soso}{\textcolor{arylideyellow}{\faMehO }}  % Interesting
+\newcommand{\good}{\textcolor{caribbeangreen}{\faSmileO }}  % Worth reading many times
 % [Bottom] For spliting a large Latex project into sub-projects (e.g. chapters)
 \usepackage{subfiles}
 
@@ -203,11 +210,11 @@ urlcolor={blue!80!black}
 \begin{tabular}{ l l l l l }
 	\toprule
 	\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                                  \\ \midrule
-	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Boney96}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
-	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{MG}        & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
-	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{HK}        & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\
-	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Pan}       & Note4         & 2011          & Pan            & \ref{lit:labelOfYourSubsubsection4} \\
-	\truncate{\titlelength}{A very very very very very very very very very very long title}\cite{Something} & Note5         & 2012          & Shixi          & \ref{lit:labelOfYourSubsubsection5} \\ \bottomrule
+	\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{Boney96}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
+	\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{MG}        & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
+	\truncate{\titlelength}{\soso A very very very very very very very very very very long title}\cite{HK}        & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\
+	\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{Pan}       & Note4         & 2011          & Pan            & \ref{lit:labelOfYourSubsubsection4} \\
+	\truncate{\titlelength}{\bad A very very very very very very very very very very long title}\cite{Something}  & Note5         & 2012          & Shixi          & \ref{lit:labelOfYourSubsubsection5} \\ \bottomrule
 \end{tabular}
 \end{threeparttable}
 \end{adjustbox}
