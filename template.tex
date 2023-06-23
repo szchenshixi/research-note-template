@@ -40,7 +40,10 @@
 % Formating the appendix sections
 \usepackage[title]{appendix}
 % Link icon \faExternalLink
-\usepackage{fontawesome}
+\usepackage{fontawesome5}
+% For \notebox, \tipbox, \warningbox, \cautionbox, \importantbox, and
+% For noteblock, tipblock, warningblock, cautionblock, importantblock
+\usepackage{awesomebox}
 % Fit table to the page width automatically
 \usepackage{adjustbox}
 % Provides easy color coding. e.g. {blue!80!black} means blue*0.8 + black*0.2
@@ -55,10 +58,11 @@
 % For the adjustwidth environment, used in "formal" environment
 \usepackage[strict]{changepage}
 % For concecutive in-text citations to follow the "[1], [3]-[5]" style
-\usepackage[noadjust]{cite}
-\renewcommand\citeform[1]{[#1]}
-\renewcommand\citeleft{}
-\renewcommand\citeright{}
+%\usepackage[noadjust]{cite} % The old hacky way to make "cite" package work
+%\renewcommand\citeform[1]{[#1]}
+%\renewcommand\citeleft{}
+%\renewcommand\citeright{}
+\usepackage[numbers,sort&compress]{natbib} % \cite[p.~10]{refName} to add additional information 
 
 % ------------------------------
 %    Packages Kept at Bottom
@@ -82,13 +86,10 @@ urlcolor={blue!80!black}
 \newcommand\myBlogUrl{http://schenax.student.ust.hk}
 % A macro to show the date of last update
 \newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
-% Paper labels [Ref] http://latexcolor.com/
-\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
-\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
-\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
-\newcommand{\bad}{\textcolor{bittersweet}{\faFrownO }}  % Not worth reading again
-\newcommand{\soso}{\textcolor{arylideyellow}{\faMehO }}  % Interesting
-\newcommand{\good}{\textcolor{caribbeangreen}{\faSmileO }}  % Worth reading many times
+% Paper ratings icons
+\newcommand{\bad}{\textcolor[HTML]{EC6B56}{\faIcon[regular]{frown}}}  % A paper not worth reading again ---- red
+\newcommand{\soso}{\textcolor[HTML]{FFC154}{\faIcon[regular]{grin-alt}}}  % An interesting paper ---- yellow
+\newcommand{\good}{\textcolor[HTML]{47B39C}{\faIcon[regular]{laugh-beam}}}  % A paper worth reading many times ---- green
 % [Bottom] For spliting a large Latex project into sub-projects (e.g. chapters)
 \usepackage{subfiles}
 
@@ -195,9 +196,13 @@ urlcolor={blue!80!black}
 
 \blindtext
 
-\blindtext
+\begin{noteblock}
+Some information goes here
 
-\subsubsection{Your Subsubsection}
+And some other information goes here
+\end{noteblock}
+
+\blindtext
 
 \begin{table}[!htb]
 	\centering
@@ -233,11 +238,17 @@ urlcolor={blue!80!black}
 	\end{adjustbox}
 \end{table}
 
-\blindtext
+\subsubsection{Your Subsubsection}
+
+\paragraph{Object1} is the focus of this paragraph. \blindtext
+
+\paragraph{Object2} is the focus of this paragraph. \blindtext
 
 \subsection{Literature}
 % From this point on, hide sub-sub-sections in the ToC
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\cite{Boney96, MG, HK, Pan, Something} has reported promising results on phenomena A, B, C while \cite{Something} provides more evidence to support the hypothesis. Particularly, \citep[Sec.~III]{Something} explains their relationship in great details and proposes a new model called WWW.
 
 \begin{table}[!htb]
 \centering
@@ -259,7 +270,7 @@ urlcolor={blue!80!black}
 \end{adjustbox}
 \end{table}
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
 \label{lit:labelOfYourSubsubsection1}		% The \label should always be after \caption
 {
@@ -270,7 +281,7 @@ urlcolor={blue!80!black}
 
 \blindtext
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
 \label{lit:labelOfYourSubsubsection2}		% The \label should always be after \caption
 {
@@ -283,7 +294,7 @@ urlcolor={blue!80!black}
 
 \subfile{latex/pseudocode.tex}
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
 \label{lit:labelOfYourSubsubsection3}		% The \label should always be after \caption
 {
@@ -294,7 +305,7 @@ urlcolor={blue!80!black}
 
 \blindtext
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
 \label{lit:labelOfYourSubsubsection4}		% The \label should always be after \caption
 {
@@ -305,7 +316,7 @@ urlcolor={blue!80!black}
 
 \blindtext
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faArrowCircleOUp}}{}}
+\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
 \label{lit:labelOfYourSubsubsection5}		% The \label should always be after \caption
 {
@@ -338,7 +349,7 @@ urlcolor={blue!80!black}
 	
 	\subsection{A Subection in Appendix}
 	
-	\section{\href{\myBlogUrl}{\noindent My Blog \texorpdfstring{\small \faExternalLink}{}}}
+	\section{\href{\myBlogUrl}{\noindent My Blog \texorpdfstring{\small \faIcon{external-link-alt}}{}}}
 	
 \end{appendices}
 
