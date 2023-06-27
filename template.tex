@@ -116,6 +116,20 @@ urlcolor={blue!80!black}
 		\vspace{2pt}
 	\end{adjustwidth}\endMakeFramed%
 }
+% \tagaddtext command that add a unit to equations right before their tag
+\makeatletter
+\providecommand\add@text{}
+\newcommand\tagaddtext[1]{%
+	\gdef\add@text{#1\gdef\add@text{}}}% 
+\renewcommand\tagform@[1]{%
+	\maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
+% Example:
+% \begin{equation}
+	% 	P_{mod}-L_{IO}-L_{IC} \geq P_{min,det}, \tagaddtext{[dBm]}
+	%	\label{eqn:opticalPowerBudget}
+	% \end{equation}
 
 % -----------------------------
 %     Experimental Packages
@@ -172,7 +186,12 @@ urlcolor={blue!80!black}
 
 \subsection{Your Subsection}
 
-\blindtext
+Ensuring a low enough bit error rate (BER) at the receiver requires that the received signal must exceed the minimum detectable power of the receiver. This requirement can be expressed mathematically as
+\begin{equation}
+	P_{mod}-L_{IO}-L_{IC} \geq P_{min,det}, \tagaddtext{[dBm]}
+	\label{eqn:opticalPowerBudget}
+\end{equation}
+where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO}$ represents the coupling loss at chip boundaries, and $L_{IC}$ represents the on-chip loss due to devices such as waveguides, fibers, and micro-ring resonators (MRRs). The parameter $P_{min,det}$ denotes the minimum detectable power, which is by definition the receiver's sensitivity and is expressed in decibels relative to one milliwatt (dBm).
 
 \begin{figure}[!hbt]
 	\centering
