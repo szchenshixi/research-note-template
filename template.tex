@@ -87,9 +87,9 @@ urlcolor={blue!80!black}
 % A macro to show the date of last update
 \newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
 % Paper ratings icons
-\newcommand{\bad}{\textcolor[HTML]{EC6B56}{\faIcon[regular]{frown}}}  % A paper not worth reading again ---- red
-\newcommand{\soso}{\textcolor[HTML]{FFC154}{\faIcon[regular]{grin-alt}}}  % An interesting paper ---- yellow
-\newcommand{\good}{\textcolor[HTML]{47B39C}{\faIcon[regular]{laugh-beam}}}  % A paper worth reading many times ---- green
+\newcommand{\bad}{\textcolor[HTML]{EC6B56}{\faIcon[regular]{frown}}}  	    % A red icon for paper not worth reading again
+\newcommand{\soso}{\textcolor[HTML]{FFC154}{\faIcon[regular]{grin-alt}}}    % A yellow icon for interesting paper
+\newcommand{\good}{\textcolor[HTML]{47B39C}{\faIcon[regular]{laugh-beam}}}  % A green icon for paper worth reading many times
 % [Bottom] For spliting a large Latex project into sub-projects (e.g. chapters)
 \usepackage{subfiles}
 
@@ -134,10 +134,8 @@ urlcolor={blue!80!black}
 % -----------------------------
 %     Experimental Packages
 % -----------------------------
-% \usepackage{tabularx}
 % Used just in this template to generate dummy content
 \usepackage{blindtext}
-
 
 \title{Research Note Template}
 \author{Shixi Chen}
@@ -147,16 +145,9 @@ urlcolor={blue!80!black}
 
 % Start roman numbering
 \pagenumbering{roman}
-\maketitle
 
-%\begin{abstract}
-%The \texttt{outlines} package defines the \texttt{outline} environment,
-%that allows outline-style indented lists with freely mixed levels up
-%to four levels deep.  It replaces the nested "begin"/"end" pairs by
-%different item tags "\1" to "\4" for each nesting level.  This is very
-%convenient in cases where nested lists are used a lot, such as for to-do
-%lists or presentation slides.
-%\end{abstract}
+%\maketitle  % Replace the default \maketitle command by a customized title page
+\subfile{latex/titlepage.tex}
 
 % e.g. 2 -- TOC displays part,chapters,sections,subsections
 %  -1 = \part
@@ -171,19 +162,19 @@ urlcolor={blue!80!black}
 % Render the last compile time. With arg: \updateinfo[December 18, 2020]
 \updateinfo
 
-\newpage
+%\newpage
 % Switch to normal numbering
 \pagenumbering{arabic}
 
-\chapter*{Template1}
+\chapter{Your Chapter One}
 
 \subfile{latex/chapter_template.tex}
-\newpage
+%\newpage
 
-\chapter*{Template2}
+\chapter{Your Chapter Two}
 
 \subfile{latex/chapter_template.tex}
-\newpage
+%\newpage
 
 % Uncomment this to use your own .Bib file
 %\bibliography{bibliography/yourBibFile}
