@@ -191,4 +191,30 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 % -----------------------------------------------------------------------------
 %              End of chapter "Optical Inter/Intra-Chip Networks"
 % -----------------------------------------------------------------------------
+
+% A macro that checks if this file is compiled standalone
+\ifSubfilesClassLoaded{
+% Uncomment this to use your own .bib file
+%\bibliography{../bibliography/yourBibFile}
+
+% A dummy bibliography list. 100 is a random guess of the total number of references
+\begin{thebibliography}{100}
+	\bibitem{Boney96} Boney, L., Tewfik, A.H., and Hamdy, K.N., ``Digital
+	Watermarks for Audio Signals," \emph{Proceedings of the Third IEEE
+		International Conference on Multimedia}, pp. 473-480, June 1996.
+	
+	\bibitem{MG} Goossens, M., Mittelbach, F., Samarin, \emph{A LaTeX
+		Companion}, Addison-Wesley, Reading, MA, 1994.
+	
+	\bibitem{HK} Kopka, H., Daly P.W., \emph{A Guide to LaTeX},
+	Addison-Wesley, Reading, MA, 1999.
+	
+	\bibitem{Pan} Pan, D., ``A Tutorial on MPEG/Audio Compression," \emph{IEEE
+		Multimedia}, Vol.2, pp.60-74, Summer 1998.
+	
+	\bibitem{Something} Shixi, ``A Better Way to Include Bibliography is to Use Zotera," \emph{IEEE
+	}, Vol.2, pp.60-74, Summer 2021.
+\end{thebibliography}
+}{}
+
 \end{document}
