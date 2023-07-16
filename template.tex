@@ -59,11 +59,9 @@
 % For the adjustwidth environment, used in "formal" environment
 \usepackage[strict]{changepage}
 % For concecutive in-text citations to follow the "[1], [3]-[5]" style
-%\usepackage[noadjust]{cite} % The old hacky way to make "cite" package work
-%\renewcommand\citeform[1]{[#1]}
-%\renewcommand\citeleft{}
-%\renewcommand\citeright{}
-\usepackage[numbers,sort&compress]{natbib} % \cite[p.~10]{refName} to add additional information 
+\usepackage[numbers,sort&compress]{natbib} % e.g. \cite[p.~10]{refName} to add additional page information 
+% For \elasticfigure that aligns several images in one row so that they have the same height
+\usepackage{elasticrow}
 
 % ------------------------------
 %    Packages Kept at Bottom
@@ -177,7 +175,7 @@ urlcolor={blue!80!black}
 \subfile{latex/chapter_template.tex}
 %\newpage
 
-% Uncomment this to use your own .Bib file
+% Uncomment this to use your own .bib file
 %\bibliography{bibliography/yourBibFile}
 
 % A dummy bibliography list. 100 is a random guess of the total number of references
