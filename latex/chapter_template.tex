@@ -81,7 +81,7 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 				router                                & 0.09 pJ/bit               & 0.11 W                          &                                \\
 				buffer                                & 0.064 pJ/bit              & 0.0002 W                        &                                \\ \midrule
 				intra-die elink (16-Byte wide, uni-)  & 0.0768 pJ/bit             & 0.017 W                         &                                \\
-				inter-die elink                       & 1.02 pJ/bit               & \textcolor{red}{0 W, no report} & \cite{Something}               \\
+				inter-die elink                       & 1.02 pJ/bit               & \textcolor{red}{0 W, no report} & \cite{A}               \\
 				inter-chip elink \tnote{a}            & 4.71 pJ/bit               & \textcolor{red}{0 W, no report} & OEIL                           \\ \midrule
 				memory controller                     & 0.0391783 W               & 0.00194085 W                    & McPAT                          \\ \midrule
 				memory                                & 0.24 W                    & 0.075 W                         & MICRON DDR4 8GB                \\
@@ -106,10 +106,11 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 % From this point on, hide sub-sub-sections in the ToC
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
-\cite{Boney96, MG, HK, Pan, Something} has reported promising results on phenomena A, B, C while \cite{Something} provides more evidence to support the hypothesis. Particularly, \citep[Sec.~III]{Something} explains their relationship in great details and proposes a new model called WWW.
+\cite{A, B, G} has reported promising results on phenomena A, B, C while \cite{G} provides more evidence to support the hypothesis. Particularly, \citep[Sec.~III]{G} explains their relationship in great details and proposes a new model called WWW.
 
 \begin{table}[!htb]
 	\centering
+	\caption*{Sample Literature}
 	\label{tab:literature}		% The \label should always be after \caption
 	% \resizebox{\textwidth}{!}{  % Make the table fit text width
 		\begin{adjustbox}{max width=\textwidth}  % Make the table fit text width
@@ -117,12 +118,10 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 				\newcommand{\titlelength}{230pt}  % Defines the display length of a title
 				\begin{tabular}{ l l l l l }
 					\toprule
-					\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                                  \\ \midrule
-					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{Boney96}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
-					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{MG}        & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
-					\truncate{\titlelength}{\soso A very very very very very very very very very very long title}\cite{HK}        & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\
-					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{Pan}       & Note4         & 2011          & Pan            & \ref{lit:labelOfYourSubsubsection4} \\
-					\truncate{\titlelength}{\bad A very very very very very very very very very very long title}\cite{Something}  & Note5         & 2012          & Shixi          & \ref{lit:labelOfYourSubsubsection5} \\ \bottomrule
+					\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                       \\ \midrule
+					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{A}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
+					\truncate{\titlelength}{\bad A very very very very very very very very very very long title}\cite{B}    & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
+					\truncate{\titlelength}{\soso A very very very very very very very very very very long title}\cite{G}   & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\ \bottomrule
 				\end{tabular}
 			\end{threeparttable}
 		\end{adjustbox}
@@ -133,7 +132,8 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 \label{lit:labelOfYourSubsubsection1}		% The \label should always be after \caption
 {
 	\tiny
-	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Boney96}
+	Authors: A. Alpha, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{A}\\
+	Source: Conference A (2020)
 	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
 }
 
@@ -144,7 +144,8 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 \label{lit:labelOfYourSubsubsection2}		% The \label should always be after \caption
 {
 	\tiny
-	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{MG}
+	Authors: B. Beta, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{B}\\
+	Source: Conference B (2021)
 	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
 }
 
@@ -157,33 +158,11 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 \label{lit:labelOfYourSubsubsection3}		% The \label should always be after \caption
 {
 	\tiny
-	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{HK}
+	Authors: G. Gamma, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{G}\\
+	Source: Journal C (2022)
 	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
 }
 
-\blindtext
-
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
-% \texorpdfstring is used to generate proper PDF indices
-\label{lit:labelOfYourSubsubsection4}		% The \label should always be after \caption
-{
-	\tiny
-	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Pan}
-	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
-}
-
-\blindtext
-
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
-% \texorpdfstring is used to generate proper PDF indices
-\label{lit:labelOfYourSubsubsection5}		% The \label should always be after \caption
-{
-	\tiny
-	Authors: Dana Vantrease, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{Something}
-	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
-}
-
-\cite{Pan, Something, HK, Boney96}
 \blindtext
 
 % Resume to show up to \subsubsection in the ToC
@@ -198,23 +177,23 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 %\bibliography{../bibliography/yourBibFile}
 
 % A dummy bibliography list. 100 is a random guess of the total number of references
-\begin{thebibliography}{100}
-	\bibitem{Boney96} Boney, L., Tewfik, A.H., and Hamdy, K.N., ``Digital
-	Watermarks for Audio Signals," \emph{Proceedings of the Third IEEE
-		International Conference on Multimedia}, pp. 473-480, June 1996.
-	
-	\bibitem{MG} Goossens, M., Mittelbach, F., Samarin, \emph{A LaTeX
-		Companion}, Addison-Wesley, Reading, MA, 1994.
-	
-	\bibitem{HK} Kopka, H., Daly P.W., \emph{A Guide to LaTeX},
-	Addison-Wesley, Reading, MA, 1999.
-	
-	\bibitem{Pan} Pan, D., ``A Tutorial on MPEG/Audio Compression," \emph{IEEE
-		Multimedia}, Vol.2, pp.60-74, Summer 1998.
-	
-	\bibitem{Something} Shixi, ``A Better Way to Include Bibliography is to Use Zotera," \emph{IEEE
-	}, Vol.2, pp.60-74, Summer 2021.
-\end{thebibliography}
+%\begin{thebibliography}{100}
+%	\bibitem{Boney96} Boney, L., Tewfik, A.H., and Hamdy, K.N., ``Digital
+%	Watermarks for Audio Signals," \emph{Proceedings of the Third IEEE
+%		International Conference on Multimedia}, pp. 473-480, June 1996.
+%	
+%	\bibitem{MG} Goossens, M., Mittelbach, F., Samarin, \emph{A LaTeX
+%		Companion}, Addison-Wesley, Reading, MA, 1994.
+%	
+%	\bibitem{HK} Kopka, H., Daly P.W., \emph{A Guide to LaTeX},
+%	Addison-Wesley, Reading, MA, 1999.
+%	
+%	\bibitem{Pan} Pan, D., ``A Tutorial on MPEG/Audio Compression," \emph{IEEE
+%		Multimedia}, Vol.2, pp.60-74, Summer 1998.
+%	
+%	\bibitem{Something} Shixi, ``A Better Way to Include Bibliography is to Use Zotera," \emph{IEEE
+%	}, Vol.2, pp.60-74, Summer 2021.
+%\end{thebibliography}
 }{}
 
 \end{document}
