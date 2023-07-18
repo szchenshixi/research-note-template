@@ -142,6 +142,21 @@ urlcolor={blue!80!black}
 	% 	P_{mod}-L_{IO}-L_{IC} \geq P_{min,det}, \tagaddtext{[dBm]}
 	%	\label{eqn:opticalPowerBudget}
 	% \end{equation}
+% To indent all but the first line of a paragraph
+% [Ref] https://tex.stackexchange.com/questions/2787/indent-all-but-first-lines-of-paragraph
+\newenvironment{hanglist}{%
+\begin{list}{}{%
+	\tiny
+	\setlength{\leftmargin}{\parindent}
+	\setlength{\itemindent}{-\parindent}}
+	\setlength{\labelwidth}{0pt}
+	\setlength{\labelsep}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+}{%
+\end{list}
+}
 
 % -----------------------------
 %     Experimental Packages
@@ -161,7 +176,8 @@ urlcolor={blue!80!black}
 %\maketitle  % Replace the default \maketitle command by a customized title page
 \subfile{latex/titlepage.tex}
 
-% e.g. 2 -- TOC displays part,chapters,sections,subsections
+% Control which level the table-of-content (TOC) shows up to
+% e.g. 2 -- TOC displays part, chapters, sections, and subsections
 %  -1 = \part
 % 	0 = \chapter
 % 	1 = \section
@@ -169,7 +185,7 @@ urlcolor={blue!80!black}
 % 	3 = \subsubsection
 % 	4 = \paragraph
 % 	5 = \subparagraph
-\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \tableofcontents
 % Render the last compile time. With arg: \updateinfo[December 18, 2020]
 \updateinfo
@@ -178,12 +194,12 @@ urlcolor={blue!80!black}
 % Switch to normal numbering
 \pagenumbering{arabic}
 
-\chapter{Your Chapter One}
+\chapter{Chapter One}
 
 \subfile{latex/chapter_template.tex}
 %\newpage
 
-\chapter{Your Chapter Two}
+\chapter{Chapter Two}
 
 \subfile{latex/chapter_template.tex}
 

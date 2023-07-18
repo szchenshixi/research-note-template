@@ -3,7 +3,7 @@
 \documentclass[../template.tex]{subfiles}
 
 \begin{document}
-\section{Your Section One}
+\section{Section One}
 
 \blindtext
 
@@ -13,7 +13,7 @@
 	\noindent\textbf{A}: Write your thinking in a Q\&A format inside a \textbackslash begin\{formal\} \textbackslash\{formal\} block. 
 \end{formal}
 
-\subsection{Your Subsection}
+\subsection{Subsection}
 
 Ensuring a low enough bit error rate (BER) at the receiver requires that the received signal must exceed the minimum detectable power of the receiver. This requirement can be expressed mathematically as
 \begin{equation}
@@ -96,21 +96,21 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 	\end{adjustbox}
 \end{table}
 
-\subsubsection{Your Subsubsection}
+\subsubsection{Subsubsection}
 
 \paragraph{Object1} is the focus of this paragraph. \blindtext
 
 \paragraph{Object2} is the focus of this paragraph. \blindtext
 
-\subsection{Literature}
-% From this point on, hide sub-sub-sections in the ToC
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\section{Literature}
+% From this point on, show up to \section in the ToC
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 \cite{A, B, G} has reported promising results on phenomena A, B, C while \cite{G} provides more evidence to support the hypothesis. Particularly, \citep[Sec.~III]{G} explains their relationship in great details and proposes a new model called WWW.
 
 \begin{table}[!htb]
 	\centering
-	\caption*{Sample Literature}
+%	\caption*{Sample Literature}
 	\label{tab:literature}		% The \label should always be after \caption
 	% \resizebox{\textwidth}{!}{  % Make the table fit text width
 		\begin{adjustbox}{max width=\textwidth}  % Make the table fit text width
@@ -118,55 +118,49 @@ where $P_{mod}$ represents the signal power immediately after modulation, $L_{IO
 				\newcommand{\titlelength}{230pt}  % Defines the display length of a title
 				\begin{tabular}{ l l l l l }
 					\toprule
-					\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                       \\ \midrule
-					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{A}   & Note1         & 2008          & Boney96        & \ref{lit:labelOfYourSubsubsection1} \\
-					\truncate{\titlelength}{\bad A very very very very very very very very very very long title}\cite{B}    & Note2         & 2009          & MG             & \ref{lit:labelOfYourSubsubsection2} \\
-					\truncate{\titlelength}{\soso A very very very very very very very very very very long title}\cite{G}   & Note3         & 2010          & HK             & \ref{lit:labelOfYourSubsubsection3} \\ \bottomrule
+					\textbf{Title}                                                                                          & \textbf{Type} & \textbf{Date} & \textbf{Group} & \textbf{Page}                   \\ \midrule
+					\truncate{\titlelength}{\good A very very very very very very very very very very long title}\cite{A}   & Note1         & 2008          & A. Alpha       & \ref{lit:labelOfSubsubsection1} \\
+					\truncate{\titlelength}{\bad A very very very very very very very very very very long title}\cite{B}    & Note2         & 2009          & B. Beta        & \ref{lit:labelOfSubsubsection2} \\
+					\truncate{\titlelength}{\soso A very very very very very very very very very very long title}\cite{G}   & Note3         & 2010          & G. Gamma       & \ref{lit:labelOfSubsubsection3} \\ \bottomrule
 				\end{tabular}
 			\end{threeparttable}
 		\end{adjustbox}
 	\end{table}
 	
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
+\subsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
-\label{lit:labelOfYourSubsubsection1}		% The \label should always be after \caption
-{
-	\tiny
-	Authors: A. Alpha, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{A}\\
-	Source: Conference A (2020)
-	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
-}
+\label{lit:labelOfSubsubsection1}		% The \label should always be after \caption
+\begin{hanglist}
+	\item Authors: A. Alpha, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{A}
+	\item Source: Conference A (2020)
+\end{hanglist}
 
 \blindtext
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
+\subsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
-\label{lit:labelOfYourSubsubsection2}		% The \label should always be after \caption
-{
-	\tiny
-	Authors: B. Beta, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{B}\\
-	Source: Conference B (2021)
-	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
-}
+\label{lit:labelOfSubsubsection2}		% The \label should always be after \caption
+\begin{hanglist}
+	\item Authors: B. Beta, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{B}
+	\item Source: Conference B (2021)
+\end{hanglist}
 
 \blindtext
 
 \subfile{pseudocode.tex}
 
-\subsubsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
+\subsection{A very very very very very very very very very very long title \texorpdfstring{\hyperref[tab:literature]{\footnotesize \hfill\faIcon[regular]{arrow-alt-circle-up}}}{}}
 % \texorpdfstring is used to generate proper PDF indices
-\label{lit:labelOfYourSubsubsection3}		% The \label should always be after \caption
-{
-	\tiny
-	Authors: G. Gamma, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{G}\\
-	Source: Journal C (2022)
-	\par  % \par is the paragraph end and makes LaTeX (re-)compute the line spacing with \tiny
-}
+\label{lit:labelOfSubsubsection3}		% The \label should always be after \caption
+\begin{hanglist}
+	\item Authors: G. Gamma, Robert Schreiber, Matteo Monchiero, Moray McLaren, Norman P. Jouppi, Marco Fiorentino, Al Davis, Nathan Binkert, Raymond G. Beausoleil, Jung Ho Ahn \cite{G}
+	\item Source: Conference C (2022)
+\end{hanglist}
 
 \blindtext
 
-% Resume to show up to \subsubsection in the ToC
-\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+% Resume to show up to \subsection in the ToC
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 % -----------------------------------------------------------------------------
 %              End of chapter "Optical Inter/Intra-Chip Networks"
 % -----------------------------------------------------------------------------
