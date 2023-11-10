@@ -1,6 +1,7 @@
 % !TeX root = pseudocode.tex
 % !TeX spellcheck = en_US
-\documentclass[../template.tex]{subfiles}
+\providecommand{\projectroot}{..}  % bibtex will need this to find bibliography files
+\documentclass[\projectroot/template.tex]{subfiles}
 
 %\usepackage{amsmath}
 %\usepackage{algorithm}
@@ -10,26 +11,47 @@
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
 \makeatother
-	\begin{algorithm}
-		\caption{My algorithm}\label{euclid}
-		\begin{algorithmic}[1]
-			\Procedure{MyProcedure}{}
-			\State $\textit{stringlen} \gets \text{length of }\textit{string}$
-			\State $i \gets \textit{patlen}$
-			\BState \emph{top}:
-			\If {$i > \textit{stringlen}$} \Return false
-			\EndIf
-			\State $j \gets \textit{patlen}$
-			\BState \emph{loop}:
-			\If {$\textit{string}(i) = \textit{path}(j)$}
-			\State $j \gets j-1$.
-			\State $i \gets i-1$.
-			\State \textbf{goto} \emph{loop}.
-			\State \textbf{close};
-			\EndIf
-			\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-			\State \textbf{goto} \emph{top}.
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
+\begin{algorithm}
+	\caption{My algorithm}\label{alg:euclid1}
+	\begin{algorithmic}[1]
+		\Procedure{MyProcedure}{}
+		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
+		\State $i \gets \textit{patlen}$
+		\BState \emph{top}:
+		\If {$i > \textit{stringlen}$} \Return false
+		\EndIf
+		\State $j \gets \textit{patlen}$
+		\BState \emph{loop}:
+		\If {$\textit{string}(i) = \textit{path}(j)$}
+		\State $j \gets j-1$.
+		\State $i \gets i-1$.
+		\State \textbf{goto} \emph{loop}.
+		\State \textbf{close};
+		\EndIf
+		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+		\State \textbf{goto} \emph{top}.
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+	
+\section{Example Algorithm}
+
+Algorithms can be included using the commands as shown in algorithm \ref{alg:euclid1}.
+
+\begin{algorithm}
+	\caption{Euclid’s algorithm}\label{alg:euclid2}
+	\textbf{INPUT:} $x$ - input data\\
+	\textbf{OUTPUT:} $abc$ is $x$
+	\begin{algorithmic}[1]
+		\Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+		\State $r\gets a\bmod b$
+		\While{$r\not=0$}\Comment{We have the answer if r is 0}
+		\State $a\gets b$
+		\State $b\gets r$
+		\State $r\gets a\bmod b$
+		\EndWhile\label{euclidendwhile}
+		\State \textbf{return} $b$\Comment{The gcd is b}
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
 \end{document} 
