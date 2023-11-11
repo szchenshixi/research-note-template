@@ -20,6 +20,8 @@
 \newlength{\elasticrow@sep}
 \newsavebox{\elasticrow@box}
 \newtoks{\elasticbox@argtoks}
+\newcommand{\elasticfigure@caption}{}
+\newcommand{\elasticfigure@label}{}
 \newif\ifelasticrow@fullwidth
 
 %% command for adding figures to the row
@@ -64,6 +66,8 @@
 	\ifx#1\empty%
 		\includegraphics[height=\elasticrow@height]{#2}%
 	\else%
+		% Set the default values
+		\setkeys{elasticfigure@key}{caption=, label=}%
 		% Set the provided key-value pairs
 		\setkeys{elasticfigure@key}{#1}%
 		\subcaptionbox{\elasticfigure@caption\label{\elasticfigure@label}}{\includegraphics[height=\elasticrow@height]{#2}}%
