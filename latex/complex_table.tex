@@ -1,0 +1,61 @@
+% !TeX root = complex_table.tex
+% !TeX spellcheck = en_US
+\providecommand{\projectroot}{..}  % bibtex will need this to find bibliography files
+\documentclass[\projectroot/template.tex]{subfiles}
+
+\begin{document}
+	
+% Optical Device: MR
+% CouplerType: Coupler
+\begin{table}[!h]
+\fontsize{9}{11}\selectfont
+\centering
+% \caption{Microring Resonator Configuration \cite{dong_low_2009}}
+\caption{Microring Resonator Configuration}
+\label{tab:setup-MR}
+% \resizebox{0.99\columnwidth}{!}{
+	\begin{tabular}{l @{\hskip-20pt}r @{\hskip10pt}l @{\hskip-30pt}r}
+		\textbf{Parameter}                  & \textbf{Value}                & \textbf{Parameter}                  & \textbf{Value}                \\ \toprule
+		\textbf{Material}                   &                               &                                     &                               \\ \toprule
+		Substrate Refractive Index $n_s$    & SiO$_2$: 1.45                 & Guiding Film Refractive Index $n_f$ & Si: 3.45                      \\
+		Clad Refractive Index $n_c$         & SiO$_2$: 1.45                 & Air Refractive Index $n_{air}$      & 1.0                           \\
+		Guiding Film Absorption             & 0.015 $mm^{-1}$               &                                     &                               \\
+		Epsilon0 $\epsilon_0$               & $8.854\times 10^{-14}$        & Epsilonr-Si $\epsilon_{Si}$         & 11.7                          \\
+		Boltzmann Constant                  & $1.3806\times 10^{-23}$       & Q                                   & $1.60\times 10^{-19} $ C      \\
+		$L_p$                               & 2 $\mu m$                     & $L_n$                               & 1 $\mu m$                     \\
+		$n_i$                               & $1.0\times 10^{10}$ $cm^{-3}$ &                                     &                               \\ \toprule
+		\textbf{Optical Element}            &                               &                                     &                               \\ \toprule
+		\multicolumn{4}{c}{\textbf{Phase Shifter}}                                                 \\
+		Rib Width                           & 0.5 $\mu m$                   & Film Height                         & 0.25 $\mu m$                  \\
+		Etching Depth                       & 0.2 $\mu m$                   & Cladding Height                     & 1.2 $\mu m$                   \\
+		PN Offset                           & 50 $nm$                       & Ring Radius                         & 15 $\mu m$                    \\
+		\multicolumn{4}{c}{\textbf{Directional Coupler}}                                              \\
+		Length                              & 0.1 $\mu m$                   & Gap                                 & 0.18 $\mu m$                  \\ \toprule
+		\textbf{Electrical Element}         &                               &                                     &                               \\ \toprule
+		\multicolumn{4}{c}{\textbf{Doping}}                                                    \\
+		Device Type                         & Horizontal PN                 & Modulation Mechanism                & Carrier Depletaion            \\
+		P-area-NA                           & $5.0\times10^{17}$ $cm^{-3}$  & N-area-ND                           & $1.0\times 10^{18}$ $cm^{-3}$ \\
+		P-area-x                            & 0.6 $\mu m$                   & N-area-x                            & 0.6 $\mu m$                   \\ % Temperature & 300 K
+		% Temperature                       & 300 K                         &  \\ % Deplation Width Correction Factor & 0.8
+		% Deplation Width Correction Factor & 0.8                           &  \\
+		\multicolumn{4}{c}{\textbf{SPICE Model}}                                                  \\
+		$\tau$                              & 0.5 ns                        & Series-Resistance                   & 55 $\Omega$                   \\
+		$I_S$                               & $1.0\times 10^{-8}$ $\mu A$   & $n_{pn}$                            & 1                             \\
+		$V_0$                               & 1.0 V                         & $C_j(0)$                            & 0.4 pF                        \\
+		IBV                                 & 1000 $\mu A$                  & BV                                  & 40.0 V                        \\ \toprule
+		\textbf{Circuit}                    &                               &                                     &                               \\ \toprule
+		\multicolumn{4}{c}{\textbf{Simulation Stimulus}}                                              \\
+		DC Bias                             & -4 V                          & Vpp                                 & 10 V                          \\
+		Signal Period                       & 100 ps                        & Laser Central Wavelength            & 1555 $nm$                     \\
+		Optical Input Signal Ein            & 1                             & Thermal adjustment power            & 2.4 mW/nm                     \\
+		Environmental Temperature           & 300 K                         &                                     &                               \\
+		\multicolumn{4}{c}{\textbf{Simulation Accuracy \& Measurement}}                                      \\
+		Voltage Step                        & 0.1 V                         & Width Step                          & 0.6 nm                        \\
+		Time Step                           & 0.2 ps                        & Wavelength Step                     & 0.02 nm                       \\
+		Wavelength Range                    & 1550 - 1560 $\mu m$           & Voltage Measure Point               & 1, -2, -4, -7, -9 V           \\
+		Simulation Time                     & 1 us                          &                                     &                               \\ \bottomrule
+	\end{tabular}
+	% \raggedright{\\$\ast$ parameter are discussed but not modeled \\ $\circ$ parameter means not a general model}
+\end{table}
+
+\end{document}
